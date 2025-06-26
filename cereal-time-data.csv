@@ -1,62 +1,70 @@
-date,name,grams
+﻿date,name,grams
+6/23/25,Cheerios,284
+6/23/25,Honey Nut Cheerios,614
+6/23/25,Corn Flakes,323
+6/23/25,Honey Nut Chex,0
+6/23/25,Chex,280
+6/23/25,Raisin Bran,0
+6/23/25,Frosted Mini Wheats,0
+6/23/25,Life,325
 6/16/25,Cheerios,284
 6/16/25,Honey Nut Cheerios,728
 6/16/25,Corn Flakes,364
-6/16/25,Honey Nut Chex,
+6/16/25,Honey Nut Chex,0
 6/16/25,Chex,279
 6/16/25,Raisin Bran,263
-6/16/25,Frosted Mini Wheats,
+6/16/25,Frosted Mini Wheats,0
 6/16/25,Life,325
 6/9/25,Cheerios,327
 6/9/25,Honey Nut Cheerios,900
 6/9/25,Corn Flakes,426
-6/9/25,Honey Nut Chex,
+6/9/25,Honey Nut Chex,0
 6/9/25,Chex,313
 6/9/25,Raisin Bran,448
-6/9/25,Frosted Mini Wheats,
+6/9/25,Frosted Mini Wheats,0
 6/9/25,Life,372
 6/6/25,Cheerios,352
-6/6/25,Honey Nut Cheerios,
+6/6/25,Honey Nut Cheerios,0
 6/6/25,Corn Flakes,426
-6/6/25,Honey Nut Chex,
+6/6/25,Honey Nut Chex,0
 6/6/25,Chex,344
 6/6/25,Raisin Bran,547
-6/6/25,Frosted Mini Wheats,
+6/6/25,Frosted Mini Wheats,0
 6/6/25,Life,484
 6/2/25,Cheerios,434
-6/2/25,Honey Nut Cheerios,
+6/2/25,Honey Nut Cheerios,0
 6/2/25,Corn Flakes,426
-6/2/25,Honey Nut Chex,
+6/2/25,Honey Nut Chex,0
 6/2/25,Chex,375
 6/2/25,Raisin Bran,612
-6/2/25,Frosted Mini Wheats,
+6/2/25,Frosted Mini Wheats,0
 6/2/25,Life,576
 5/30/25,Cheerios,473
-5/30/25,Honey Nut Cheerios,
+5/30/25,Honey Nut Cheerios,0
 5/30/25,Corn Flakes,425
-5/30/25,Honey Nut Chex,
+5/30/25,Honey Nut Chex,0
 5/30/25,Chex,400
 5/30/25,Raisin Bran,67
-5/30/25,Frosted Mini Wheats,
+5/30/25,Frosted Mini Wheats,0
 5/30/25,Life,618
 5/26/25,Cheerios,528
 5/26/25,Honey Nut Cheerios,172
 5/26/25,Corn Flakes,455
-5/26/25,Honey Nut Chex,
-5/26/25,Chex,
+5/26/25,Honey Nut Chex,0
+5/26/25,Chex,0
 5/26/25,Raisin Bran,165
-5/26/25,Frosted Mini Wheats,
+5/26/25,Frosted Mini Wheats,0
 5/26/25,Life,740
 5/16/25,Cheerios,538
 5/16/25,Honey Nut Cheerios,439
 5/16/25,Corn Flakes,586
-5/16/25,Honey Nut Chex,
-5/16/25,Chex,
+5/16/25,Honey Nut Chex,0
+5/16/25,Chex,0
 5/16/25,Raisin Bran,601
 5/16/25,Frosted Mini Wheats,309
 5/16/25,Life,163
 5/12/25,Cheerios,544
-5/12/25,Honey Nut Cheerios, 
+5/12/25,Honey Nut Cheerios,0
 5/12/25,Corn Flakes,634
 5/12/25,Honey Nut Chex,157
 5/12/25,Chex,134
@@ -64,7 +72,7 @@ date,name,grams
 5/12/25,Frosted Mini Wheats,308
 5/12/25,Life,225
 5/9/25,Cheerios,544
-5/9/25,Honey Nut Cheerios, 
+5/9/25,Honey Nut Cheerios,0
 5/9/25,Corn Flakes,634
 5/9/25,Honey Nut Chex,157
 5/9/25,Chex,134
@@ -72,7 +80,7 @@ date,name,grams
 5/9/25,Frosted Mini Wheats,308
 5/9/25,Life,225
 5/5/25,Cheerios,544
-5/5/25,Honey Nut Cheerios, 
+5/5/25,Honey Nut Cheerios,0
 5/5/25,Corn Flakes,634
 5/5/25,Honey Nut Chex,157
 5/5/25,Chex,134
@@ -80,7 +88,7 @@ date,name,grams
 5/5/25,Frosted Mini Wheats,308
 5/5/25,Life,225
 5/2/25,Cheerios,544
-5/2/25,Honey Nut Cheerios, 
+5/2/25,Honey Nut Cheerios,0
 5/2/25,Corn Flakes,634
 5/2/25,Honey Nut Chex,157
 5/2/25,Chex,134

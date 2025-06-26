@@ -27,11 +27,7 @@ st.markdown(
 
     The Report is a value-add and information net-positive for high-impact individuals in the breakfast cereal space. Plinth Quantitative 
     Research Associates brings decades of consumer-side experience in the breakfast cereal market, with a special emphasis on cross-product 
-    integration and alternative-meal theory.
-
-    As of June, 2025, the preliminary results for The Report are available. These initial results provide an early look at the 2025 trends, 
-    alongside findings that give a sense of what the full results will look like. The preliminary report also provides an opporunity for 
-    cross-team consultation and course-correction on the research design.
+    integration and cereal physics theory.
 
     Readers can expect both product-centric and consumer-centric insights from The Report, which is the first of its kind. Plinth
     Quantitative Research Associates thanks Carb<sup>2</sup> Corp and the PETER Division for their unwavering support of innovative
