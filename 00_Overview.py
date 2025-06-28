@@ -1,4 +1,7 @@
 import streamlit as st
+from PIL import Image
+import os
+import glob
 
 st.set_page_config(page_title = 'Cereal Trends 2025', layout = 'wide')
 def sidebar_title_above_nav():
@@ -35,7 +38,7 @@ st.markdown(
     )
 
 st.subheader("Plinth Quantitative Research Associates, LLC")
-st.title("Cereal Trends 2025 -- Preliminary Report")
+st.title("Cereal Trends 2025 Report")
 
 st.markdown(
     """

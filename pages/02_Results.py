@@ -53,6 +53,8 @@ def get_data():
     cereal_ts['change_per_day'] = cereal_ts['gram_change'] / cereal_ts['day_change']
     cereal_ts['change_per_day_zeroed'] = cereal_ts['change_per_day']
     cereal_ts.loc[cereal_ts['change_per_day_zeroed'] > 0, 'change_per_day_zeroed'] = 0
+    cereal_ts['change_per_day_naed'] = cereal_ts['change_per_day']
+    cereal_ts.loc[cereal_ts['change_per_day_naed'] > 0, 'change_per_day_naed'] = None
     return cereal_ts
 
 def name_filter(df, names = None):
@@ -174,7 +176,7 @@ with st.expander("Number of Boxes"):
 st.subheader("Dynamic Duos")
 
 # Set up table 
-cereal_pivot = cereal_ts.pivot(index = 'date', columns = 'name', values = 'change_per_day')
+cereal_pivot = cereal_ts.pivot(index = 'date', columns = 'name', values = 'change_per_day_naed')
 corr = cereal_pivot.corr('pearson')
 corr_reset = corr.reset_index()
 corr_long = pd.melt(corr_reset, id_vars='name', var_name = 'name2', value_name='corr')
@@ -189,7 +191,8 @@ corr_chart = alt.Chart(corr_long).mark_rect().encode(
                                      labelLimit=200)),
     color=alt.Color('corr:Q',
          scale=alt.Scale(domain=[-1, -0.5, 0, 0.5, 1], range=['blue', 'lightblue', 'white', 'pink', 'red']),
-         title='Correlation'
+         title='Correlation',
+         legend=None
      ),
     tooltip=[
         alt.Tooltip('name', title='Cereal 1:'),
@@ -206,23 +209,28 @@ st.altair_chart(corr_chart, use_container_width=True)
 
 st.markdown("""
     ### Top Dynamic Duos: 
-    #### Corn Flakes + Honey Nut Cheerios (correlation = 0.47)
-    Simultaneously innovative and expectable--this was not a top combination identified a priori but, in retrospect, it is a natural 
-    pairing. The heavy-hitting sweetness of the Honey Nut Cheerios is balanced by the effortless flavor and refreshing texture of 
-    the Corn Flakes. This is a top milk-retention combination.
-    #### Cheerios + Life (correlation = 0.42)
-    Pedestrian? Perhaps, but there are few, if any, texture combinations better than the circles and squares. While experts have lauded 
-    the powerful combination of Life and Honey Nut Cheerios, these real-world observations identify Honey Nut's older, more mature 
-    brother as the second component of this dynamic duo.
+    1. **Cheerios + Life (correlation = 0.61):** Experts agree, there are few better textural combinations than the squares and circles.
+            Though Honey Nut Cheerios are perhaps the more iconic combination, these data indicate that Life benefits from a more pedestrian 
+            partner.
+    2. **Corn Flakes + Frosted Mini Wheats (correlation = 0.61):** This combination isn't backed up by a lot of theory in the literature,
+            but the principles of sweetness spillover certainly apply. Anytime Corn Flakes are brought closer to Frosted Flakes by a 
+            combination, good things happen.
+    3. **Chex + Honey Nut Chex (correlation = 0.57):** Perhaps an indication that the correlation is not the end-all-be-all of cereal combination
+            theory. Or, perhaps this blended variety of Chex provides balance that only an experienced palette could truly appreciate.
             
-    ### Paragons of Insularity:
-    #### Raisin Bran
-    Despite its astronomical popularity, Raisin Bran does not play well with others. Like Einstein, Newton, and Dickinson before it, 
-    the Bran prefers to exist in solitary excellence. The controversial raisins require a highly-tuned pairing. Though the bran flakes 
-    are this tuned partner, other additions to the bowl only serve to disrupt majesty.
-    #### Chex
-    Though part of perhaps the all-time most notorious combination (Chex and Life), Chex was not a popular mixing choice (or, really, 
-    a popular individual choice...). Its single positive pairing was Honey Nut Chex, which seems more likely to be coincidence than a 
-    true pattern.
+    ### Like Oil and Water, These Don't Mix:
+    1. **Corn Flakes + Cheerios (correlation = -0.31):** Cheerios were the least-combinatory cereal out there, boasting all three of the
+            lowest correlation coefficients. This tops the lot: two boring cereals don't add up to a less boring cereal.
+    2. **Cheerios + Raisin Bran (correlation = -0.23):** Again, bland meet bland. Though Raisin Bran is highly popular, its raisin
+            component requires a highly-tuned pairing for proper success. Cheerios are simply too sensible to be a good pairing.
+    3. **Frosted Mini Wheats + Raisin Bran (correlation = -0.14):** Though not one of the top 3, the a priori beliefs about this combination 
+            are strong enough so as to make it mention-worthy by Bayesian process. Testurally and flavor-wise a poor mix, and these are
+            two of the least sog-resistant cereals out there.
+
+    ### The Paragon of Friendship
+    Life is the amiable customer in the fridge-top lineup. It shows positive correlation coefficients with all other brands, save Raisin Bran.
+            From the iconic Chex and Life power duo to the cloyingly-sweet yet overpoweringly delicious Honey Nut Cheerios combination,
+            Life lends excellent flavor, unique and compatible texture, and a sog profile that complements both sog winners and losers. It's
+            also an excellent weight cereal, making it perfect to combine with typical floaters such as Cheerios.
 """)
 
