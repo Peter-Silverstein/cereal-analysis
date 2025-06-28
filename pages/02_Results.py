@@ -4,6 +4,24 @@ import altair as alt
 import streamlit as st
 
 st.set_page_config(page_title = 'CT2025 - Results', layout = 'wide')
+def sidebar_title_above_nav():
+    st.markdown(
+        """
+        <style>
+            [data-testid="stSidebarNav"]::before {
+                content: "Navigation";
+                margin-left: 20px;
+                margin-top: 20px;
+                font-size: 20px;
+                font-weight: bold;
+                position: relative;
+            }
+        </style>
+        """,
+        unsafe_allow_html=True,
+    )
+
+sidebar_title_above_nav()
 
 st.markdown(
     """
@@ -85,6 +103,14 @@ ts_chart_change = alt.Chart(cereal_ts_filtered).mark_line().encode(
 st.altair_chart(ts_chart_raw, use_container_width=True)
 st.altair_chart(ts_chart_change, use_container_width=True)
 
+st.markdown("""
+    #### The Tortoise, the Hare, and the Electric Bicycle
+    Corn Flakes are the perfect definition of methodical consistency, with steady consumption numbers across the whole study. Compare 
+    that with the hare, Frosted Mini Wheats. Frosted Mini Wheats are hot-streak merchants, relying on Big Weeks to get through the box. 
+    But, the fable sort of falls apart when someone pulls out the electric bike: fast *and* consistent. Looking at Raisin Bran's chart
+    is a bit like watching Eliud Kipchoge run the marathon: he won't just rinse you in the 26.2, but even over 100m (or 200m, or 5k, or 10k).
+""")
+
 st.subheader("Trendmakers")
 # INSERT BAR GRAPHS: TOTAL CONSUMPTION, SINGLE WEEK CHANGE, NUMBER OF REFILLS, AVERAGE WEEK CONSUMPTION
 
@@ -146,4 +172,57 @@ with st.expander("Number of Boxes"):
     st.altair_chart(refill_chart, use_container_width=True)
 
 st.subheader("Dynamic Duos")
-# INSERT CORRELATION/HEAT MAP
+
+# Set up table 
+cereal_pivot = cereal_ts.pivot(index = 'date', columns = 'name', values = 'change_per_day')
+corr = cereal_pivot.corr('pearson')
+corr_reset = corr.reset_index()
+corr_long = pd.melt(corr_reset, id_vars='name', var_name = 'name2', value_name='corr')
+
+corr_chart = alt.Chart(corr_long).mark_rect().encode(
+    x=alt.X('name:O', axis=alt.Axis(title='',
+                                    orient = 'top',
+                                    labelAngle = 45,
+                                    labelSeparation=-10,
+                                    labelLimit=200)),
+    y=alt.Y('name2:O', axis=alt.Axis(title='',
+                                     labelLimit=200)),
+    color=alt.Color('corr:Q',
+         scale=alt.Scale(domain=[-1, -0.5, 0, 0.5, 1], range=['blue', 'lightblue', 'white', 'pink', 'red']),
+         title='Correlation'
+     ),
+    tooltip=[
+        alt.Tooltip('name', title='Cereal 1:'),
+        alt.Tooltip('name2', title='Cereal 2:'),
+        alt.Tooltip('corr', title='Correlation: ', format='.2f')
+    ]
+).properties(
+    title='',
+    width=alt.Step(25),
+    height=alt.Step(75)
+)
+
+st.altair_chart(corr_chart, use_container_width=True)
+
+st.markdown("""
+    ### Top Dynamic Duos: 
+    #### Corn Flakes + Honey Nut Cheerios (correlation = 0.47)
+    Simultaneously innovative and expectable--this was not a top combination identified a priori but, in retrospect, it is a natural 
+    pairing. The heavy-hitting sweetness of the Honey Nut Cheerios is balanced by the effortless flavor and refreshing texture of 
+    the Corn Flakes. This is a top milk-retention combination.
+    #### Cheerios + Life (correlation = 0.42)
+    Pedestrian? Perhaps, but there are few, if any, texture combinations better than the circles and squares. While experts have lauded 
+    the powerful combination of Life and Honey Nut Cheerios, these real-world observations identify Honey Nut's older, more mature 
+    brother as the second component of this dynamic duo.
+            
+    ### Paragons of Insularity:
+    #### Raisin Bran
+    Despite its astronomical popularity, Raisin Bran does not play well with others. Like Einstein, Newton, and Dickinson before it, 
+    the Bran prefers to exist in solitary excellence. The controversial raisins require a highly-tuned pairing. Though the bran flakes 
+    are this tuned partner, other additions to the bowl only serve to disrupt majesty.
+    #### Chex
+    Though part of perhaps the all-time most notorious combination (Chex and Life), Chex was not a popular mixing choice (or, really, 
+    a popular individual choice...). Its single positive pairing was Honey Nut Chex, which seems more likely to be coincidence than a 
+    true pattern.
+""")
+
