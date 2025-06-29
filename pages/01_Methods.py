@@ -42,7 +42,7 @@ st.markdown(
     Data were collected on a semi-weekly schedule using standard field equipment (kitchen scale). Collection began in March 2025 and 
     continued through June of the same year. Plinth Quantitative Research Associates, LLC employs field researchers of the highest 
     caliber, and places a special emphasis on quality and length of experience in the hiring process. The Field Operations Lead for 
-    this project, Laura Silverstein, is well-versed in kitchen scale management as well as in-field observation and data collection.
+    this project, Laura Post, is well-versed in kitchen scale management as well as in-field observation and data collection.
 
     Data were manually entered to a cloud-hosted database service (Google Sheets) and accessed by the quantitative research team from 
     there. Due to the relative simplicity of the research design, no major issues with collection or data parsing occurred.
